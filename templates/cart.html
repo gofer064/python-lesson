@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% block head %}
+    <title>Корзина</title>
+    <link rel="stylesheet" href= "/static/css/cart.css">
+    <link rel="stylesheet" type="text/css" href="static/css/products.css">
+{% endblock %}
+
+{% block content %}
+{%if data %}
+<div>
+    <table>
+      <tr>
+        <th>Наименование</th>
+        <th>Описание</th>
+        <th>Цена</th>
+        <th>Количество</th>
+        <th>Итого</th>
+      </tr>
+        {% for row in data %}
+          <tr>
+            <td>{{row.name}}</td>
+            <td>{{row.description}}</td>
+            <td>{{row.price}} руб</td>
+            <td>{{row.amount}}</td>
+            <td>{{row.total}}</td>
+          </tr>
+        {% endfor %}
+    </table>
+    <div class="sum">Итоговая сумма {{sum}} рублей.</div>
+    <div class="sum">
+        <form method="get" action="/order">
+            <button type="submit">Перейте к оформлению заказа</button>
+        </form>
+    </div>
+{%else%}
+<div class = "bg-image">
+{%endif%}
+</div>
+{% endblock %}
+

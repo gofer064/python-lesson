@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/order.css">
+{% endblock %}
+
+{% block content %}
+<form method="post" action="/order">
+    <ul class="form">
+        {{error}}
+        <li><input type="text" name="name" placeholder="Имя"></li>
+        <li><input type="text" name="surname" placeholder="Фамилия"></li>
+        <li><input type="text" name="adress" placeholder="Адрес"></li>
+        <li><input type="text" name="phone" placeholder="Номер телефона"></li>
+        <li><input type="text" name="email" placeholder="Электронная почта"></li>
+        <li><input type="date" name="date" placeholder="Дата доставки"></li>
+        <li>
+            <select name="delivery_type">
+                <option value="Доставка на дом">Доставка на дом</option>
+                <option value="Пункт самовывоза">Пункт самовывоза</option>
+            </select>
+        </li>
+        <li>
+            <button type="submit">Нажми на меня!</button>
+
+        </li>
+    </ul>
+</form>
+{% endblock %}
